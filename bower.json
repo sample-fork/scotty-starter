@@ -1,0 +1,13 @@
+{
+  "name": "scotty-angular-starter",
+  "version": "0.1.0.0",
+  "dependencies": {
+    "angular-bootstrap": "*",
+    "angular-resource": "*",
+    "angular-route": "*",
+    "angular-ui-date": "*",
+    "angular": "*",
+    "bootstrap-css": "*",
+    "jquery": "*"
+  }
+}
