@@ -9,3 +9,9 @@ cabal-dev
 .cabal-sandbox/
 cabal.sandbox.config
 cabal.config
+.DS_Store
+*.swp
+*~
+node_modules
+.idea
+static/lib/
