@@ -7,7 +7,9 @@ import Text.Blaze.Html5.Attributes
 
 import Views.Layouts.DefaultLayout (defaultLayout)
 
+index' :: Html
 index' =
-  div $ em "I am index!"
+  div $ em $ toHtml "I am index!"
 
+index :: Html
 index = defaultLayout index'

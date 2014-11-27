@@ -1,15 +1,19 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Controllers.Application (
-  index
+  index, return404
 ) where
 
 import Web.Scotty
 import Network.HTTP.Types
 import qualified Views.Application.Index as Views
 
-index :: ActionM
-index = html Views.index
+import Utils
 
-return404 :: ActionM
+index :: ActionM ()
+index = blaze Views.index
+
+return404 :: ActionM ()
 return404 = do
   status notFound404
-  text "The requested resource was not found on this server."
+  html "The requested resource was not found on this server."
