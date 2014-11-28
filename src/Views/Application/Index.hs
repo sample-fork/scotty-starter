@@ -9,7 +9,7 @@ import Views.Layouts.DefaultLayout (defaultLayout)
 
 index' :: Html
 index' =
-  div $ em $ toHtml "I am index!"
+  div $ em "I am index!"
 
 index :: Html
 index = defaultLayout index'

@@ -20,15 +20,10 @@ executable scotty-angular-starter
   main-is:                    Main.hs
   -- other-modules:
   -- other-extensions:
-  default-extensions:         TemplateHaskell
-                            , QuasiQuotes
-                            , TypeFamilies
-                            , EmptyDataDecls
+  default-extensions:         OverloadedStrings
                             , FlexibleContexts
                             , FlexibleInstances
-                            , ScopedTypeVariables
                             , RecordWildCards
-                            , MultiParamTypeClasses
                             , GeneralizedNewtypeDeriving
                             , GADTs
   OverloadedStrings
@@ -41,10 +36,8 @@ executable scotty-angular-starter
                             , text
                             , bytestring
                             , blaze-html
-                            , persistent
-                            , persistent-template
-                            , persistent-sqlite
-                            , persistent-postgresql
+                            , sqlite-simple
+                            , postgresql-simple
                             , monad-logger
                             , transformers
                             , wai-middleware-static
