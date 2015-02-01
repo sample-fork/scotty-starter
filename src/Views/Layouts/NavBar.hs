@@ -19,7 +19,7 @@ navBar =
           span ! class_ "icon-bar" $ mempty
           span ! class_ "icon-bar" $ mempty
           span ! class_ "icon-bar" $ mempty
-        a ! class_ "navbar-brand" ! href "#" $ "Scotty-Angular"
+        a ! class_ "navbar-brand" ! href "#" $ "Scotty Starter"
           --  Collect the nav links, forms, and other content for toggling
       div ! class_ "collapse navbar-collapse" ! id "navbar-collapse-1" $ do
         ul ! class_ "nav navbar-nav" $ do
