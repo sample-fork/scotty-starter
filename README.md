@@ -1,4 +1,4 @@
-scotty-angular-starter
+scotty-starter
 ======================
 
-A starter for building web apps using the Scotty framework with AngularJS
+A starter for building web apps using the Haskell's Scotty framework
