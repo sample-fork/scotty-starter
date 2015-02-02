@@ -40,7 +40,7 @@ getDb :: IO Connection
 getDb =
   do maybeHerokuDbUri <- lookupEnv "DATABASE_URL"
      maybeLocalDbUri <- lookupEnv "PG_URI"
-     let connStr = case (liftM parseHerokuDbUri $ fmap T.pack maybeHerokuDbUri) of
+     let connStr = case liftM parseHerokuDbUri $ fmap T.pack maybeHerokuDbUri of
                       Nothing -> fromMaybe "" maybeLocalDbUri
                       Just cs -> T.unpack cs
 
