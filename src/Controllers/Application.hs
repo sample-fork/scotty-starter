@@ -1,14 +1,14 @@
 module Controllers.Application (
-  index, addUser, return404
+  index, addUser, addUserDigestive, return404
 ) where
 
 import Control.Monad.IO.Class (liftIO)
-import Network.HTTP.Types
-import Web.Scotty
-import qualified Views.Application.Index as Views
-
-import Utils
 import qualified Models.User as User
+import Network.HTTP.Types
+import Text.Digestive.Scotty (runForm)
+import Utils
+import qualified Views.Application.Index as Views
+import Web.Scotty
 
 index :: ActionM ()
 index =
@@ -24,6 +24,19 @@ addUser =
          let userId = User.UserId u
          liftIO $  User.create userId p
          status created201
+
+addUserDigestive :: ActionM ()
+addUserDigestive =
+  do (formErrs, userForm) <- runForm "form" Views.addUserFormValidate
+     case userForm of
+      Just f ->
+        do liftIO $ User.create userId passwd
+           status created201 where
+             userId = User.UserId $ Views.username f
+             passwd = Views.password f
+      _ ->
+        do liftIO $ print formErrs
+           status badRequest400
 
 return404 :: ActionM ()
 return404 = do

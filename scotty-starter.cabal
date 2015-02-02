@@ -45,5 +45,7 @@ executable scotty-starter
                             , aeson
                             , filepath
                             , data-default
+                            , digestive-functors
+                            , digestive-functors-scotty
   hs-source-dirs:             src
   default-language:           Haskell2010

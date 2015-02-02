@@ -10,9 +10,8 @@ import Data.Text
 import Data.Time.Clock (UTCTime)
 import Database.PostgreSQL.Simple
 import Database.PostgreSQL.Simple.FromRow (field, fromRow)
-import Database.PostgreSQL.Simple.ToRow (toRow)
 import Database.PostgreSQL.Simple.ToField (toField)
-
+import Database.PostgreSQL.Simple.ToRow (toRow)
 import Utils
 
 type Password = Text

@@ -1,13 +1,24 @@
 module Views.Application.Index where
 
+import Control.Applicative
+import Data.Text (Text)
+import qualified Data.Text as T
+import Models.User
 import Prelude hiding (div, head, id, span)
-
 import Text.Blaze.Html5 hiding (map, style)
 import Text.Blaze.Html5.Attributes hiding (form, label)
-
-import Models.User
-import Views.Page
+import Text.Digestive ((.:), check)
+import qualified Text.Digestive as D
 import Views.Layouts.DefaultLayout
+import Views.Page
+
+data AddUser = AddUser {username :: Text
+                       , password :: Text}
+
+addUserFormValidate :: Monad m => D.Form Text m AddUser
+addUserFormValidate = AddUser
+                      <$> "username" .: check "Username can't be empty" (not . T.null) (D.text Nothing)
+                      <*> "password" .: check "Password can't be empty" (not . T.null) (D.text Nothing)
 
 indexPage :: [User] -> Page
 indexPage users = def {pageTitle = "Scotty Starter",
@@ -30,9 +41,9 @@ index' users =
             do form ! action "/addUser" $
                  do div ! class_ "form-group" $
                       do label ! class_ "control-label" $ "Username:"
-                         input ! class_ "form-control" ! type_ "text" ! name "username"
+                         input ! class_ "form-control" ! type_ "text" ! name "form.username"
                     div ! class_ "form-group" $
                       do label ! class_ "control-label" $ "Password:"
-                         input ! class_ "form-control" ! type_ "password" ! name "password"
+                         input ! class_ "form-control" ! type_ "password" ! name "form.password"
                     div ! class_ "form-group" $
                       do button ! id "btn-create" ! class_ "btn btn-small btn-primary" ! type_ "button" $ "Add User"

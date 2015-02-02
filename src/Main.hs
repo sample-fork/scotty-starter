@@ -19,5 +19,6 @@ main =
 
        liftIO runMigration
 
-       get     "/"               AppCtrl.index
-       post    "/addUser"        AppCtrl.addUser
+       get     "/"                   AppCtrl.index
+       post    "/addUser"            AppCtrl.addUser
+       post    "/addUserDigestive"   AppCtrl.addUserDigestive
